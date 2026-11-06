@@ -5,6 +5,9 @@ from .models import ChatThread
 
 class ChatThreadService:
 
+    async def list_by_user(self, user_id: int) -> list[ChatThread]:
+        return await self.repository.list_by_user(user_id)
+
     def __init__(self, session: AsyncSession):
         self.session = session
         self.repository = ChatThreadRepository(session)

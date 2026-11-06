@@ -1,4 +1,4 @@
-
+from app.modules.chat_thread.router import router as chat_thread_router
 from fastapi import FastAPI
 from app.modules.product.router import router as product_router
 
@@ -31,6 +31,8 @@ app = FastAPI(
 
 # 创建 app 后注册路由
 app.include_router(product_router)
+
+app.include_router(chat_thread_router)
 
 @app.get("/health", summary="健康检测接口")
 async def health_check() -> dict[str, str]:

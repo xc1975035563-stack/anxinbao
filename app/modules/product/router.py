@@ -20,6 +20,7 @@ async def get_product_service(
 @router.get("/candidates", response_model=list[ProductResponse])
 async def list_candidates(
     categories: list[str] = Query(min_length=1),
+
     premium_min: Decimal | None = None,
     limit_per_category: int = 5,
     service: ProductService = Depends(get_product_service),
